@@ -1,0 +1,119 @@
+.work-time-component {
+  overflow-x: scroll;
+  font-family: 'RobotoDraft', 'Roboto', 'Helvetica Neue, Helvetica, Arial', sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.01rem;
+  color: #212121;
+  background-color: #f5f5f5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+.shadow-z-1 {
+  -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
+  -moz-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
+}
+
+.work-time-component .hours-block {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.work-time-component .hours-block .type,
+.work-time-component .hours-block .hours {
+  height: calc(50% - 9px);
+  padding: 4px;
+}
+
+.work-time-component .hours-block .type-input,
+.work-time-component .hours-block .hours-input {
+  height: calc(50% - 1px);
+  position: relative;
+}
+
+.work-time-component .hours-block .type-input {
+  border-bottom: 2px solid white;
+}
+
+.work-time-component .hours-block .type-input input,
+.work-time-component .hours-block .hours-input input {
+  width: calc(100% - 10px);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 1px solid grey;
+  padding: 4px;
+  text-align: center;
+}
+
+.work-time-component .hours-block .type {
+  border-bottom: 2px solid white;
+}
+
+.month-selection-block {
+  display: flex;
+  justify-content: space-between;
+}
+
+button.no-shadow {
+  box-shadow: none !important;
+}
+
+.edit-row {
+  cursor: pointer;
+}
+
+.edit-row:hover {
+  color: #673ab7;
+}
+
+.time-td {
+  padding: 20px !important;
+}
+
+input.not-valid {
+  border-color: #f44336 !important;
+  background-color: rgba(245, 173, 167, 0.34) !important;
+}
+
+.selected-workers {
+  padding: 8px;
+}
+
+.worker {
+  border: 1px solid lightgray;
+  background-color: white;
+  padding: 4px;
+  margin-left: 4px;
+}
+
+.delete-icon {
+  font-size: 14px;
+  height: 14px;
+  width: 14px;
+  cursor: pointer;
+}
+
+.user-selection-block {
+  padding: 4px 16px;
+}
+
+.worker-select-input {
+  width: 100%;
+}
+
+.export-to-excel {
+  position: fixed;
+  right: 8px;
+  top: 8px;
+}

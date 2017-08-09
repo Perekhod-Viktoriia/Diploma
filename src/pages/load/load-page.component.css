@@ -1,0 +1,38 @@
+.load-page .filter-block {
+  position: fixed !important;
+  top: 0;
+  left: 158px;
+  right: 158px;
+  z-index: 1;
+  padding-top: 17px;
+  padding-bottom: 5px;
+}
+
+.load-page .filter-block form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.load-page .filter-block form > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.load-page .load-form {
+  margin-top: 100px;
+}
+
+.column {
+  width: 49%;
+  display: inline-block;
+}
+
+.row .column:nth-child(2) {
+  float: right;
+}
+
+table td input {
+  max-width: 50px;
+}

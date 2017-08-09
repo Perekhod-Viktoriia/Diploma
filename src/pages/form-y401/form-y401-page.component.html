@@ -1,0 +1,105 @@
+<div class="form-y-page">
+  <md-card class="filter-block">
+    <form>
+      <div>Вчебний рiк - 2016/2017</div>
+      <div>
+        <md-select
+            placeholder="Семiстр" [(ngModel)]="selectedFilters.semester"
+            name="semester"
+            (change)="getPlan()">
+          <md-option [value]="1">Осiннiй</md-option>
+          <md-option [value]="2">Весняний</md-option>
+        </md-select>
+      </div>
+      <div>
+        <md-select
+            placeholder="Специальность"
+            [(ngModel)]="selectedFilters.specialty_id"
+            name="specialty"
+            (change)="getPlan()">
+          <md-option *ngFor="let specialty of filters.specialty" [value]="specialty.id">
+            {{specialty.name}}
+          </md-option>
+        </md-select>
+      </div>
+      <div>
+        <md-select
+            placeholder="Курс" [(ngModel)]="selectedFilters.course"
+            name="course"
+            (change)="getPlan()">
+          <md-option [value]="1">1</md-option>
+          <md-option [value]="2">2</md-option>
+          <md-option [value]="3">3</md-option>
+          <md-option [value]="3">4</md-option>
+          <md-option [value]="3">5</md-option>
+        </md-select>
+      </div>
+      <div>
+        <md-select
+            placeholder="Дисциплина" [(ngModel)]="selectedFilters.discipline_id"
+            name="discipline"
+            (change)="getPlan()">
+          <md-option *ngFor="let discipline of filters.discipline" [value]="discipline.id">
+            {{discipline.name}}
+          </md-option>
+        </md-select>
+      </div>
+    </form>
+  </md-card>
+
+  <md-card class="form-y" *ngIf="planLoaded">
+    <form>
+      <md-card-content>
+        <div class="column">
+          <md-input-container>
+            <input mdInput placeholder="Лекции" [(ngModel)]="plan.approved_lecture_count" name="lection">
+          </md-input-container>
+
+          <md-input-container>
+            <input mdInput placeholder="Лабораторные работы" [(ngModel)]="plan.approved_laboratory_count" name="lab">
+          </md-input-container>
+
+          <md-input-container>
+            <input mdInput placeholder="Практика" [(ngModel)]="plan.approved_practice_count" name="practice">
+          </md-input-container>
+
+          <md-input-container>
+            <input mdInput placeholder="Курсовые/РГЗ" [(ngModel)]="plan.approved_rgz_count" name="rgz">
+          </md-input-container>
+
+          <md-input-container>
+            <input mdInput placeholder="Зачеты" [(ngModel)]="plan.approved_credit_count" name="credit">
+          </md-input-container>
+        </div>
+
+        <div class="column">
+          <md-input-container>
+            <input mdInput placeholder="Экзамены" [(ngModel)]="plan.approved_exam_count" name="exam">
+          </md-input-container>
+
+          <md-input-container>
+            <input mdInput placeholder="Контрольные" [(ngModel)]="plan.approved_control_count" name="control">
+          </md-input-container>
+
+          <md-input-container>
+            <input mdInput placeholder="Консультации" [(ngModel)]="plan.approved_consultation_count" name="consult">
+          </md-input-container>
+
+          <md-input-container>
+            <input mdInput placeholder="Индивидуальные задания" [(ngModel)]="plan.approved_individual_count"
+                   name="individ">
+          </md-input-container>
+        </div>
+      </md-card-content>
+      <md-card-actions>
+        <button md-raised-button
+                class="no-shadow"
+                [disableRipple]="true"
+                color="primary"
+                (click)="saveForm()">
+          Сохранить
+        </button>
+      </md-card-actions>
+    </form>
+  </md-card>
+</div>

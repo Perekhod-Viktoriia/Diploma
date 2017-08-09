@@ -1,0 +1,80 @@
+.order-component .mat-divider {
+    border-color: grey;
+}
+
+.order-component .order_is_original {
+    float: right;
+    color: green;
+    cursor: default;
+}
+
+.order-component pre {
+    white-space: pre-wrap; /* css-3 */
+    white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+  /*noinspection CssInvalidPropertyValue*/
+    white-space: -pre-wrap; /* Opera 4-6 */
+    white-space: -o-pre-wrap; /* Opera 7 */
+    word-wrap: break-word;
+}
+
+.order-component .order-id {
+    position: absolute;
+    width: 35px;
+    left: -56px;
+    padding: 10px;
+    background-color: rgb(214, 207, 207);
+}
+
+.order-component .tr1 {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 15px 15px 0;
+    border-color: transparent rgb(214, 207, 207) transparent transparent;
+    position: absolute;
+    left: -15px;
+    top: 0;
+}
+
+.order-component .tr2 {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 0 15px 15px;
+    border-color: transparent transparent rgb(214, 207, 207) transparent;
+    position: absolute;
+    left: -15px;
+    bottom: 0;
+}
+
+.order-component .note {
+    border-top: 1px solid #929191;
+    margin-left: -24px;
+    margin-right: -24px;
+    margin-bottom: -24px;
+    background-color: rgb(216, 216, 216);
+    padding: 10px 10px 10px 24px;
+}
+
+.order-component .order-view, .order-component .order-sub-header {
+    text-align: center;
+}
+
+@media (max-width: 993px) {
+
+    .order-component .order-id {
+        top: 0;
+        left: 0;
+    }
+
+    .order-component .tr1, .order-component .tr2 {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .order-component .note {
+        margin-left: -16px;
+        margin-right: -16px;
+    }
+}

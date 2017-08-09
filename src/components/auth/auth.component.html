@@ -1,0 +1,38 @@
+<div class="auth-content">
+  <md-card class="app-input-section">
+    <form
+        [formGroup]="userForm"
+        (submit)="doSubmit()">
+
+      <md-input-container class="registration-name"
+                          [ngClass]="{'animate-registration-name': windowIsRegistration}">
+        <input type="text" mdInput formControlName="name" placeholder="Ник">
+      </md-input-container>
+      <div class="registration-name-errors auth-error-block"
+           [ngClass]="{'animate-registration-name-errors': windowIsRegistration}">
+        <div *ngFor="let error of formErrors.name" class="alert alert-danger">
+          {{error}}
+        </div>
+      </div>
+      <md-input-container>
+        <input type="email" mdInput formControlName="email" placeholder="Email">
+      </md-input-container>
+      <div class="auth-error-block">
+        <div *ngFor="let error of formErrors.email" class="alert alert-danger">
+          {{error}}
+        </div>
+      </div>
+
+      <md-input-container>
+        <input type="password" mdInput formControlName="password" placeholder="Пароль">
+      </md-input-container>
+      <div class="auth-error-block">
+        <div *ngFor="let error of formErrors.password" class="alert alert-danger">
+          {{error}}
+        </div>
+      </div>
+
+      <button md-raised-button [disableRipple]="true" color="primary" type="submit">{{getAnotherButtonMessage()}}</button>
+    </form>
+  </md-card>
+</div>

@@ -1,0 +1,75 @@
+<div class="orders-page">
+  <md-card class="filter-block">
+    <form>
+      <div>
+        <md-select
+            placeholder="Вид" [(ngModel)]="selectedFilters.view"
+            (change)="getOrders()"
+            name="view">
+          <md-option [value]="0"></md-option>
+          <md-option *ngFor="let view of filters?.views" [value]="view.id">
+            {{view.name}}
+          </md-option>
+        </md-select>
+
+        <md-select
+            placeholder="Подвид"
+            [(ngModel)]="selectedFilters.subview"
+            (change)="getOrders()"
+            name="subview">
+          <md-option [value]="0"></md-option>
+          <md-option *ngFor="let subview of filters?.subviews" [value]="subview.id">
+            {{subview.name}}
+          </md-option>
+        </md-select>
+
+        <md-select
+            placeholder="Отдел"
+            [(ngModel)]="selectedFilters.subdivision"
+            (change)="getOrders()"
+            name="subdivision">
+          <md-option [value]="0"></md-option>
+          <md-option *ngFor="let subdivision of filters?.subdivisions" [value]="subdivision.id">
+            {{subdivision.name}}
+          </md-option>
+        </md-select>
+      </div>
+      <div>
+        <md-input-container class="example-full-width" (change)="getOrders()">
+          <input mdInput
+                 placeholder="Номер формы"
+                 [(ngModel)]="selectedFilters.form_number"
+                 name="dorm_number">
+        </md-input-container>
+
+        <md-input-container class="example-full-width" (change)="getOrders()">
+          <input mdInput
+                 placeholder="Регистрационный номер"
+                 [(ngModel)]="selectedFilters.registration_number"
+                 name="registration_number">
+        </md-input-container>
+
+        <md-checkbox
+            [color]="'primary'"
+            [(ngModel)]="selectedFilters.is_original"
+            (change)="getOrders()"
+            [disableRipple]="true"
+            name="is_original">
+          Оригинал
+        </md-checkbox>
+      </div>
+    </form>
+    <md-progress-bar
+        class="filter-progress"
+        [color]="'primary'"
+        [value]="filteringProgress"
+        >
+    </md-progress-bar>
+  </md-card>
+
+  <div class="orders">
+    <app-order *ngFor="let order of orders" [order]="order">
+
+    </app-order>
+  </div>
+</div>

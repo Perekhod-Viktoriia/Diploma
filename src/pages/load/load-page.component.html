@@ -1,0 +1,205 @@
+<div class="load-page">
+  <md-card class="filter-block">
+    <form>
+      <div>2017/2018</div>
+      <div>
+        <md-select
+            placeholder="Семiстр"
+            [(ngModel)]="selectedFilters.semester"
+            name="semester"
+            (change)="getLoad()">
+          <md-option [value]="1">Осiннiй</md-option>
+          <md-option [value]="2">Весняний</md-option>
+        </md-select>
+      </div>
+      <div>
+        <md-select
+            placeholder="Викладач"
+            [(ngModel)]="selectedFilters.teacher_id"
+            name="teacher"
+            (change)="getLoad()">
+          <md-option *ngFor="let teacher of filters.teachers" [value]="teacher.id">
+            {{teacher.fio}}
+          </md-option>
+        </md-select>
+      </div>
+      <div>
+        <md-select
+            placeholder="Навантаження"
+            [(ngModel)]="selectedFilters.loadType"
+            name="loadType"
+            (change)="getLoad()">
+          <md-option [value]="1">Аудиторная</md-option>
+          <md-option [value]="2">Дополнительная</md-option>
+          <md-option [value]="3">Экзаменационная</md-option>
+          <md-option [value]="4">Лабораторная</md-option>
+          <md-option [value]="5">Другая</md-option>
+        </md-select>
+      </div>
+      <div>
+        <md-select
+            placeholder="Специальность"
+            [(ngModel)]="selectedFilters.specialty_id"
+            name="loadType"
+            (change)="getLoad()">
+          <md-option *ngFor="let specialty of filters.specialty" [value]="specialty.id">
+            {{specialty.name}}
+          </md-option>
+        </md-select>
+      </div>
+      <div>
+        <md-select
+            placeholder="Дисциплина"
+            [(ngModel)]="selectedFilters.discipline_id"
+            name="loadType"
+            (change)="getLoad()">
+          <md-option *ngFor="let discipline of filters.discipline" [value]="discipline.id">
+            {{discipline.name}}
+          </md-option>
+        </md-select>
+      </div>
+    </form>
+  </md-card>
+
+  <md-card class="load-form" *ngIf="loadLoaded">
+    <form>
+      <h2>Общая нагрузка по дисциплине</h2>
+      <div class="row">
+        <div class="column">
+          <md-input-container>
+            <input mdInput placeholder="Лекции" [(ngModel)]="load.approved_lecture_count" name="lection">
+          </md-input-container>
+
+          <md-input-container>
+            <input mdInput placeholder="Лабораторные работы" [(ngModel)]="load.approved_laboratory_count" name="lab">
+          </md-input-container>
+
+          <md-input-container>
+            <input mdInput placeholder="Практика" [(ngModel)]="load.approved_practice_count" name="practice">
+          </md-input-container>
+
+          <md-input-container>
+            <input mdInput placeholder="Курсовые/РГЗ" [(ngModel)]="load.approved_rgz_count" name="rgz">
+          </md-input-container>
+
+          <md-input-container>
+            <input mdInput placeholder="Зачеты" [(ngModel)]="load.approved_credit_count" name="credit">
+          </md-input-container>
+        </div>
+
+        <div class="column">
+          <md-input-container>
+            <input mdInput placeholder="Экзамены" [(ngModel)]="load.approved_exam_count" name="exam">
+          </md-input-container>
+
+          <md-input-container>
+            <input mdInput placeholder="Контрольные" [(ngModel)]="load.approved_control_count" name="control">
+          </md-input-container>
+
+          <md-input-container>
+            <input mdInput placeholder="Консультации" [(ngModel)]="load.approved_consultation_count" name="consult">
+          </md-input-container>
+
+          <md-input-container>
+            <input mdInput placeholder="Индивидуальные задания" [(ngModel)]="load.approved_individual_count"
+                   name="individ">
+          </md-input-container>
+        </div>
+      </div>
+      <h2>Не распределенная между преподавателями нагрузка</h2>
+      <div class="row">
+        <div class="column">
+          <md-input-container>
+            <input mdInput placeholder="Лекции" [(ngModel)]="load.approved_lecture_count" name="lection">
+          </md-input-container>
+
+          <md-input-container>
+            <input mdInput placeholder="Лабораторные работы" [(ngModel)]="load.approved_laboratory_count" name="lab">
+          </md-input-container>
+
+          <md-input-container>
+            <input mdInput placeholder="Практика" [(ngModel)]="load.approved_practice_count" name="practice">
+          </md-input-container>
+
+          <md-input-container>
+            <input mdInput placeholder="Курсовые/РГЗ" [(ngModel)]="load.approved_rgz_count" name="rgz">
+          </md-input-container>
+
+          <md-input-container>
+            <input mdInput placeholder="Зачеты" [(ngModel)]="load.approved_credit_count" name="credit">
+          </md-input-container>
+        </div>
+
+        <div class="column">
+          <md-input-container>
+            <input mdInput placeholder="Экзамены" [(ngModel)]="load.approved_exam_count" name="exam">
+          </md-input-container>
+
+          <md-input-container>
+            <input mdInput placeholder="Контрольные" [(ngModel)]="load.approved_control_count" name="control">
+          </md-input-container>
+
+          <md-input-container>
+            <input mdInput placeholder="Консультации" [(ngModel)]="load.approved_consultation_count" name="consult">
+          </md-input-container>
+
+          <md-input-container>
+            <input mdInput placeholder="Индивидуальные задания" [(ngModel)]="load.approved_individual_count"
+                   name="individ">
+          </md-input-container>
+        </div>
+      </div>
+      <h2>Задайте количество часов</h2>
+      <table class="table table-hover table-mc-purple table-striped">
+        <thead>
+        <tr>
+          <th>Группа</th>
+          <th>Лекции</th>
+          <th>Л.Р.</th>
+          <th>Практика</th>
+          <th>Курсовые/РГЗ</th>
+          <th>Зачеты</th>
+          <th>Экзамены</th>
+          <th>Контрольные</th>
+          <th>Консультации</th>
+          <th>Индивидуальные</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>
+            <input type="text">
+          </td>
+          <td>
+            <input type="text">
+          </td>
+          <td>
+            <input type="text">
+          </td>
+          <td>
+            <input type="text">
+          </td>
+          <td>
+            <input type="text">
+          </td>
+          <td>
+            <input type="text">
+          </td>
+          <td>
+            <input type="text">
+          </td>
+          <td>
+            <input type="text">
+          </td>
+          <td>
+            <input type="text">
+          </td>
+          <td>
+            <input type="text">
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </form>
+  </md-card>
+</div>

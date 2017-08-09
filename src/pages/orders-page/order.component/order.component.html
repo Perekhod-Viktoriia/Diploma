@@ -1,0 +1,26 @@
+<md-card class="order-component" *ngIf="order">
+  <div class="order-id" mdTooltip="Номер записи">
+    <span class="tr1"></span>
+    <span class="tr2"></span>
+    {{order.id}}
+  </div>
+  <md-card-content>
+    <md-icon *ngIf="order.is_original" class="order_is_original" mdTooltip="Оригинал" alt="Оригинал">done</md-icon>
+    <div>
+      <h2 class="order-view">{{order?.subview?.view?.name}}</h2>
+      <div class="order-sub-header">От {{order.created_at}} <strong mdTooltip="Регистрационый номер">№
+        {{order.registration_number}}</strong></div>
+      <h4>Номер формы: {{order.form_number}}</h4>
+      <pre [innerHTML]="order.content"></pre>
+      <p><strong> Адресс: </strong>{{order.address}} </p>
+      <p><strong> Отдел: </strong>{{order?.subdivision.name}} </p>
+      <p><strong> Подвид: </strong>{{order?.subview.name}} </p>
+    </div>
+    <md-divider></md-divider>
+    <div class="order-footer">
+      <p>Хранить до: {{order.safe_term}} </p>
+      <p>Валиден до: {{order.validity}} </p>
+    </div>
+    <p class="note"><strong>Заметка: </strong>{{order.note}} </p>
+  </md-card-content>
+</md-card>

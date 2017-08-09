@@ -1,0 +1,30 @@
+<div class="main-container">
+  <button md-icon-button [mdMenuTriggerFor]="menu" class="menu-button">
+    <md-icon>menu</md-icon>
+  </button>
+  <md-menu #menu="mdMenu">
+    <a md-menu-item routerLink="/orders" routerLinkActive="active">
+      <md-icon>bookmark_border</md-icon>
+      <span>Приказы</span>
+    </a>
+    <a md-menu-item routerLink="/work_time" routerLinkActive="active">
+      <md-icon>date_range</md-icon>
+      <span>Рабочее время</span>
+    </a>
+    <a md-menu-item routerLink="/load" routerLinkActive="active">
+      <md-icon>work</md-icon>
+      <span>Расчет нагрузки</span>
+    </a>
+    <a md-menu-item routerLink="/form-y401" routerLinkActive="active">
+      <md-icon>work</md-icon>
+      <span>Форма У-4.01</span>
+    </a>
+    <a md-menu-item routerLink="/load-reports" routerLinkActive="active">
+      <md-icon>work</md-icon>
+      <span>Отчеты по нагрузке</span>
+    </a>
+  </md-menu>
+  <router-outlet>
+
+  </router-outlet>
+</div>

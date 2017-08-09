@@ -1,0 +1,67 @@
+.auth-content {
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  padding: 0;
+}
+
+.app-progress {
+  margin: 20px;
+}
+
+.auth-content .app-input-section {
+  width: 270px;
+  background-color: white;
+}
+
+.auth-content md-input-container {
+  width: 100%;
+}
+
+.auth-content .app-input-section md-input,
+.auth-content .app-input-section button {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.auth-content .registration-name {
+  height: 0;
+  overflow: hidden;
+  margin: 0 !important;
+  transition: all 500ms;
+}
+
+.auth-content .registration-name-errors {
+  min-height: 0 !important;
+  height: 0;
+  overflow: hidden;
+  transition: all 500ms;
+}
+
+.auth-content .animate-registration-name {
+  height: 50px;
+  margin-top: 20px !important;
+}
+
+.auth-content .registration-name-errors.animate-registration-name-errors {
+  height: 16px;
+  min-height: 16px !important;;
+}
+
+.auth-content .change-window-type {
+  color: grey;
+  float: right;
+  text-decoration: none;
+  font-size: 0.8em;
+  margin-top: 16px;
+}
+
+.auth-content .auth-error-block {
+  min-height: 16px;
+}
